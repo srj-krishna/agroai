@@ -5,4 +5,4 @@ pydeck
 streamlit
 embedchain[pinecone]
 sentence-transformers
-sqlite3==3.35.0
+chromadb==0.3.29
