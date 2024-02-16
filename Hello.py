@@ -10,26 +10,16 @@ os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 def embedchain_bot():
     return App.from_config(
        config={
-           "llm": {
-                    "provider": "huggingface",
-                    "config": {
-                                "model": "mistralai/Mistral-7B-Instruct-v0.2",
-                                "top_p": 0.5,
-                                "stream": true,
-                            }
-                 },
-           "embedder": {
-                        "provider": "huggingface",
-                        "config": {
-                                    "model": "sentence-transformers/all-mpnet-base-v2",
-        }
-           
-       },
-           "vectordb": {
-        "provider": "pinecone",
-        "config": {"metric": "cosine","vector_dimension": 768,"index_name": "ragembed",
-            "pod_config": {"environment": "gcp-starter","metadata_config": {"indexed": ["url","hash"]}}
-        }
+           "llm": {"provider": "huggingface",
+                   "config": {"model": "mistralai/Mistral-7B-Instruct-v0.2","top_p": 0.5,"stream": true,}
+           },
+
+           "embedder": {"provider": "huggingface",
+                        "config": {"model": "sentence-transformers/all-mpnet-base-v2",}
+           },
+           "vectordb": {"provider": "pinecone",
+                        "config": {"metric": "cosine","vector_dimension": 768,"index_name": "ragembed",
+                        "pod_config": {"environment": "gcp-starter","metadata_config": {"indexed": ["url","hash"]}}}
     },
     )
 
