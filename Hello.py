@@ -6,9 +6,7 @@ from streamlit.logger import get_logger
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 
-@st.cache_resource
-def embedchain_bot():
-    return App.from_config(config={
+config_data = {
         "llm": {
         "provider": "huggingface",
         "config": {
@@ -39,8 +37,11 @@ def embedchain_bot():
             }
         }
     }
-    })
+    }
 
+@st.cache_resource
+def embedchain_bot():
+    return App.from_config(config = config_data)
 
 st.set_page_config(
     page_title="AgriBot",
