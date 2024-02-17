@@ -5,7 +5,6 @@ pydeck
 streamlit
 embedchain==0.1.80
 sentence-transformers
-chromadb==0.3.26
 
 
 
