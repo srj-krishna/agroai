@@ -13,3 +13,17 @@ st.set_page_config(
 
 st.title("💬 AgriGPT")
 st.caption("🚀 developed by NeuBiom Labs!")
+
+if "messages" not in st.session_state:
+    st.session_state.messages = [
+        {
+            "role": "assistant",
+            "content": """
+        Hi! I'm AgriBot. """,
+        }
+    ]
+
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
