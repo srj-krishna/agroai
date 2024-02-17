@@ -3,7 +3,7 @@ numpy
 pandas
 pydeck
 streamlit==1.29.0
-embedchain[pinecone]==0.1.60
+embedchain[pinecone]==0.1.80
 sentence-transformers
 chromadb==0.3.29
 pysqlite3-binary
