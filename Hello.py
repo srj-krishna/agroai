@@ -41,7 +41,7 @@ config_data = {
 
 @st.cache_resource
 def embedchain_bot():
-    return App.from_config(config = config_data)
+    return App.from_config('config.yaml')
 
 st.set_page_config(
     page_title="AgriBot",
