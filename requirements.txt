@@ -5,6 +5,7 @@ pydeck
 streamlit
 embedchain[pinecone]
 sentence-transformers
+chromadb==0.3.26
 
 
 
