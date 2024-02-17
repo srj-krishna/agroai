@@ -50,7 +50,7 @@ st.set_page_config(
 
 st.title("💬 AgriBot")
 st.caption("🚀 developed by NeuBiom Labs!")
-
+app = embedchain_bot()
 if "messages" not in st.session_state:
     st.session_state.messages = [
         {
