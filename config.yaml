@@ -13,9 +13,3 @@ vectordb:
     metric: cosine
     vector_dimension: 768
     index_name: ragembed
-    pod_config:
-      environment: gcp-starter
-      metadata_config:
-        indexed:
-          - "url"
-          - "hash"
