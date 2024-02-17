@@ -9,7 +9,7 @@ os.environ["OPENAI_API_KEY"] = "sk-NvOH6Q2Y762RdNHQ0Hz0T3BlbkFJRFaafxNT4mGbwGhQf
 
 @st.cache_resource
 def embedchain_bot():
-    return App()
+    return App.from_config('config.yaml')
     
 st.set_page_config(
     page_title="AgGPT",
