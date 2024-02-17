@@ -2,4 +2,5 @@ streamlit
 embedchain[pinecone]==0.1.0
 sentence-transformers
 chromadb
+pysqlite3-binary
 
