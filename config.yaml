@@ -13,3 +13,4 @@ vectordb:
     metric: cosine
     vector_dimension: 768
     collection_name: ragembed
+    index_name: ragembed
