@@ -1,7 +1,6 @@
 import streamlit as st
 import os
 import embedchain
-from embedchain import App
 from streamlit.logger import get_logger
 
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
@@ -43,7 +42,7 @@ config_data = {
 
 @st.cache_resource
 def embedchain_bot():
-    return App.from_config(config=config_data)
+    return embedchain.App.from_config(config=config_data)
     
 st.set_page_config(
     page_title=("AgriGPT"),
