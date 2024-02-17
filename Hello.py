@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from embedchain import App
+from embedchain
 from streamlit.logger import get_logger
 
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
@@ -39,7 +39,7 @@ config_data = {
     }
     }
 
-app = App.from_config(config=config_data)
+app = embedchain.App.from_config(config=config_data)
 
 @st.cache_resource
 def embedchain_bot():
