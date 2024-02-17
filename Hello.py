@@ -19,7 +19,7 @@ st.caption("🚀 developed by NeuBiom Labs!")
 
 @st.cache_resource
 def embedchain_bot():
-    return embedchain.App.from_config(config="config.yaml")
+    return embedchain.App.from_config("config.yaml")
     
 if "messages" not in st.session_state:
     st.session_state.messages = [
