@@ -43,7 +43,7 @@ app = App.from_config(config=config_data)
 
 @st.cache_resource
 def embedchain_bot():
-    return embedchain.App.from_config('config.yaml')
+    return App.from_config('config.yaml')
     
 st.set_page_config(
     page_title="AgGPT",
