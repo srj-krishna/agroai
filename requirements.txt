@@ -3,7 +3,7 @@ numpy
 pandas
 pydeck
 streamlit
-embedchain[pinecone]
+embedchain
 sentence-transformers
 chromadb==0.3.26
 
