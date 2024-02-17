@@ -40,7 +40,7 @@ config_data = {
     }
     }
 
-app = App.from_config(config=config_data)
+app = App(config=config_data)
 
 @st.cache_resource
 def embedchain_bot():
