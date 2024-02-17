@@ -1,5 +1,5 @@
 streamlit
-embedchain[pinecone]==0.0.76
+embedchain[pinecone]==0.1.0
 sentence-transformers
 chromadb
 
