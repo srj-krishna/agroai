@@ -45,7 +45,7 @@ def embedchain_bot():
     return App.from_config(config=config_data)
     
 st.set_page_config(
-    page_title="AgGPT",
+    page_title="AgriGPT",
     page_icon="👋",
     )
 
