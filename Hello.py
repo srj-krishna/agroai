@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import embedchain
 from embedchain import App
 from streamlit.logger import get_logger
 
@@ -45,11 +46,11 @@ def embedchain_bot():
     return App.from_config(config=config_data)
     
 st.set_page_config(
-    page_title="AgriGPT",
+    page_title=("AgriGPT"),
     page_icon="👋",
     )
-
-st.title("💬 AgriGPT")
+version = embedchain.__version__
+st.title(f"💬 AgriGPT {version}")
 st.caption("🚀 developed by NeuBiom Labs!")
 
 if "messages" not in st.session_state:
