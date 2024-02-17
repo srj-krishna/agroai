@@ -1,10 +1,5 @@
-altair
-numpy
-pandas
-pydeck
 streamlit
-embedchain==0.1.80
+embedchain[pinecone]
 sentence-transformers
-
-
+chromadb==0.3.26
 
