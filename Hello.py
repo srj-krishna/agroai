@@ -7,6 +7,41 @@ os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 os.environ["OPENAI_API_KEY"] = "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"
 
+config_data = {
+        "llm": {
+        "provider": "huggingface",
+        "config": {
+            "model": "mistralai/Mistral-7B-Instruct-v0.2",
+            "top_p": 0.5
+        }
+    },
+    "embedder": {
+        "provider": "huggingface",
+        "config": {
+            "model": "sentence-transformers/all-mpnet-base-v2"
+        }
+    },
+    "vectordb": {
+        "provider": "pinecone",
+        "config": {
+            "metric": "cosine",
+            "vector_dimension": 768,
+            "index_name": "ragembed",
+            "pod_config": {
+                "environment": "gcp-starter",
+                "metadata_config": {
+                    "indexed": [
+                        "url",
+                        "hash"
+                    ]
+                }
+            }
+        }
+    }
+    }
+
+app = App.from_config(config=config_data)
+
 @st.cache_resource
 def embedchain_bot():
     return App.from_config('config.yaml')
@@ -32,5 +67,4 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-app = App.from_config('config.yaml')
 
