@@ -14,7 +14,7 @@ st.set_page_config(
     )
 
 version = embedchain.__version__
-st.title(f"💬 AgriGPT {version}")
+st.title("💬 AgriGPT")
 st.caption("🚀 developed by NeuBiom Labs!")
 
 @st.cache_resource
