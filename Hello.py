@@ -26,7 +26,7 @@ if "messages" not in st.session_state:
         {
             "role": "assistant",
             "content": """
-        Hi! I'm AgriBot. """,
+        Hi! I'm AgriBot, your personal agricultural assistant. I'm here to help you with information and context-specific recommendations for farming in Kerala. I can guide you through every step of the farming process. How can I help you today? """,
         }
     ]
 
