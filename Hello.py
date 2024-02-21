@@ -16,7 +16,7 @@ st.set_page_config(
 version = embedchain.__version__
 st.title("💬 AgroGPT")
 st.caption("🚀 developed by NeuBiom Labs!")
-
+system_message = "You are an Agribot, here to help with information and context-specific recommendations for farming in Kerala for the following query. "
 @st.cache_resource
 def agribot():
     return embedchain.App.from_config("config.yaml")
@@ -59,7 +59,7 @@ if prompt := st.chat_input("Ask me anything!"):
         msg_placeholder.markdown("Thinking...")
         full_response = ""
 
-        for response in app.query(prompt):
+        for response in app.query(system_message + prompt):
             msg_placeholder.empty()
             full_response += response
 
