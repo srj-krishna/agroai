@@ -18,7 +18,7 @@ st.title("💬 AgroGPT")
 st.caption("🚀 developed by NeuBiom Labs!")
 
 @st.cache_resource
-def embedchain_bot():
+def agribot():
     return embedchain.App.from_config("config.yaml")
     
 if "messages" not in st.session_state:
@@ -35,7 +35,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 if prompt := st.chat_input("Ask me anything!"):
-    app = embedchain_bot()
+    app = agribot()
 
     if prompt.startswith("/add"):
         with st.chat_message("user"):
