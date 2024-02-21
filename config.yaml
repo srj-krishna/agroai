@@ -3,7 +3,6 @@ llm:
   config:
     model: 'mistralai/Mistral-7B-Instruct-v0.2'
     top_p: 0.5
-    stream: 'true'
 embedder:
   provider: huggingface
   config:
