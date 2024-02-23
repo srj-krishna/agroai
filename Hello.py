@@ -83,5 +83,5 @@ if prompt := st.chat_input("Ask me anything!"):
             # Translate to Malayalam
             
         tr_response = translate_string('ml', full_response )    
-        msg_placeholder.markdown(tr_response)
-        st.session_state.messages.append({"role": "assistant", "content": full_response})
+        msg_placeholder.markdown(full_response)
+        st.session_state.messages.append({"role": "assistant", "content": tr_response})
