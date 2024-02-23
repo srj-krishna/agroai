@@ -60,7 +60,7 @@ with st.sidebar:
     lang = st.radio(
     "Select Language",
     ["English", "Malayalam(മലയാളം)"], index=None)
-    msg_placeholder.markdown("Changing language...")
+    st.write("You selected:", lang)
 if prompt := st.chat_input("Ask me anything!"):
     app = agribot()
  
