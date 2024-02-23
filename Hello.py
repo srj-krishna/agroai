@@ -15,7 +15,7 @@ os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 def translate_string(from_lang, to_lang, string):
     try:
         input_text_elements = [ InputTextItem(text = string) ]
-        response = text_translator.translate(content = input_text_elements, to = [to_lang], from_parameter = [from_lang])
+        response = text_translator.translate(content = input_text_elements, to = [to_lang], from_parameter = from_lang)
         translation = response[0] if response else None
 
         if translation:
