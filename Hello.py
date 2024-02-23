@@ -52,16 +52,7 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-col1, col2 = st.columns(2)
-with col2:
-    st.radio(
-            "Select language 👇",
-            ["English", "Malayalam"],
-            key="visibility",
-            label_visibility=st.session_state.visibility,
-            disabled=st.session_state.disabled,
-            horizontal=st.session_state.horizontal,
-        )
+
 if prompt := st.chat_input("Ask me anything!"):
     app = agribot()
 
