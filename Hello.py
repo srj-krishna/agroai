@@ -2,10 +2,11 @@ import streamlit as st
 import os
 import embedchain
 from streamlit.logger import get_logger
-from translate import Translator
+import azure.ai.translation.text
+from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
+from azure.ai.translation.text.models import InputTextItem
 
-translator= Translator(to_lang="ml")
-
+text_translator = TextTranslationClient(credential = TranslatorCredential("8a775052516145059fc3839081b55967", "southeastasia"));
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 
@@ -64,10 +65,20 @@ if prompt := st.chat_input("Ask me anything!"):
         for response in app.query(system_message + prompt):
             msg_placeholder.empty()
             full_response += response
-            print(full_response)
             # Translate to Malayalam
-            #full_response = translator.translate(system_message)
-            #print(full_response)
+            tr_response = ""
+            source_language = "en"
+            target_languages = ["ml"]
+            input_text_elements = [ InputTextItem(text = full_response) ]
 
+            translated_response = text_translator.translate(content = input_text_elements, to = target_languages, from_parameter = source_language)
+            translation = translated_response[0] if response else None
+
+            if translation:
+               for translated_text in translation.translations:
+                   print(f"Text was translated to: '{translated_text.to}' and the result is: '{translated_text.text}'.")
+                   tr_response += translated_text.text
+
+            
         msg_placeholder.markdown(full_response)
-        st.session_state.messages.append({"role": "assistant", "content": full_response})
+        st.session_state.messages.append({"role": "assistant", "content": full_response + tr_response})
