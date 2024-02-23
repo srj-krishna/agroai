@@ -11,12 +11,6 @@ text_translator = TextTranslationClient(credential = TranslatorCredential("8a775
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 
-with st.sidebar:
-    lang = st.radio(
-    "Select Language",
-    ["English", "Malayalam(മലയാളം)"],
-    index=None,)
-    #message_placeholder.markdown(f"Changing language to {lang}")
 
 def translate_string(lang_code, string):
     try:
@@ -59,6 +53,13 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+
+with st.sidebar:
+    lang = st.radio(
+    "Select Language",
+    ["English", "Malayalam(മലയാളം)"],
+    index=None,)
+    message_placeholder.markdown(f"Changing language to {lang}")
 
 if prompt := st.chat_input("Ask me anything!"):
     app = agribot()
