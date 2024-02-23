@@ -18,7 +18,7 @@ st.set_page_config(
 version = embedchain.__version__
 st.title("💬 AgroGPT")
 st.caption("🚀 developed by NeuBiom Labs!")
-system_message = "You are an Agribot, here to help with information and context-specific recommendations for farming in Kerala for the following query. "
+system_message = "You are an Agribot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just politely say that you don't have the information."
 @st.cache_resource
 def agribot():
     return embedchain.App.from_config("config.yaml")
