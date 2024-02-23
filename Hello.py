@@ -15,8 +15,8 @@ with st.sidebar:
     lang = st.radio(
     "Select Language",
     ["English", "Malayalam"],
-    index=None,
-)
+    index=None,)
+    st.write("You selected:", genre)
 
 st.write("You selected:", genre)
 def translate_string(lang_code, string):
