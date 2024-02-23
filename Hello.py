@@ -82,4 +82,4 @@ if prompt := st.chat_input("Ask me anything!"):
 
             
         msg_placeholder.markdown(full_response)
-        st.session_state.messages.append({"role": "assistant", "content": full_response + tr_response})
+        st.session_state.messages.append({"role": "assistant", "content": full_response})
