@@ -35,6 +35,7 @@ version = embedchain.__version__
 st.title("💬 AgroGPT")
 st.caption("🚀 developed by NeuBiom Labs!")
 system_message = "You are an Agribot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just politely say that you don't have the information."
+
 @st.cache_resource
 def agribot():
     return embedchain.App.from_config("config.yaml")
@@ -51,7 +52,16 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-
+col1, col2 = st.columns(2)
+with col2:
+    st.radio(
+            "Select language 👇",
+            ["English", "Malayalam"],
+            key="visibility",
+            label_visibility=st.session_state.visibility,
+            disabled=st.session_state.disabled,
+            horizontal=st.session_state.horizontal,
+        )
 if prompt := st.chat_input("Ask me anything!"):
     app = agribot()
 
