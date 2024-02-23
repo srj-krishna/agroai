@@ -64,6 +64,7 @@ if prompt := st.chat_input("Ask me anything!"):
         for response in app.chat(system_message + prompt):
             msg_placeholder.empty()
             full_response += response
+            print(full_response)
             # Translate to Malayalam
             full_response = translator.translate(full_response)
             print(full_response)
