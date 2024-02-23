@@ -2,6 +2,9 @@ import streamlit as st
 import os
 import embedchain
 from streamlit.logger import get_logger
+from googletrans import Translator
+
+translator = Translator()
 
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
@@ -61,6 +64,10 @@ if prompt := st.chat_input("Ask me anything!"):
         for response in app.chat(system_message + prompt):
             msg_placeholder.empty()
             full_response += response
+            # Translate to Malayalam
+            full_response = translator.translate(full_response, dest="ml").text
+
+            
 
         msg_placeholder.markdown(full_response)
         st.session_state.messages.append({"role": "assistant", "content": full_response})
