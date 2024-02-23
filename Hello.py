@@ -11,6 +11,20 @@ text_translator = TextTranslationClient(credential = TranslatorCredential("8a775
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 
+def translate_string(lang_code, string):
+    try:
+        input_text_elements = [ InputTextItem(text = string) ]
+        response = text_translator.translate(content = input_text_elements, to = [lang_code], from_parameter = 'en')
+        translation = response[0] if response else None
+
+        if translation:
+            for translated_text in translation.translations:
+                return translated_text.text
+
+    except HttpResponseError as exception:
+        print(f"Error Code: {exception.error.code}")
+        print(f"Message: {exception.error.message}")
+        return string  # return original string if translation fails
     
 st.set_page_config(
     page_title=("AgroGPT"),
@@ -67,19 +81,7 @@ if prompt := st.chat_input("Ask me anything!"):
             msg_placeholder.empty()
             full_response += response
             # Translate to Malayalam
-            tr_response = ""
-            source_language = "en"
-            target_languages = ["ml"]
-            input_text_elements = [ InputTextItem(text = full_response) ]
-
-            translated_response = text_translator.translate(content = input_text_elements, to = target_languages, from_parameter = source_language)
-            translation = translated_response[0] if response else None
-
-            if translation:
-               for translated_text in translation.translations:
-                   #print(f"Text was translated to: '{translated_text.to}' and the result is: '{translated_text.text}'.")
-                   tr_response += translated_text.text
-
             
-        msg_placeholder.markdown(full_response)
-        st.session_state.messages.append({"role": "assistant", "content": full_response})
+        tr_response = translate_string('ml', full_response )    
+        msg_placeholder.markdown(tr_response)
+        st.session_state.messages.append({"role": "assistant", "content": tr_response})
