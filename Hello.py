@@ -14,11 +14,10 @@ os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 with st.sidebar:
     lang = st.radio(
     "Select Language",
-    ["English", "Malayalam"],
+    ["English", "Malayalam(മലയാളം)"],
     index=None,)
-    st.write("You selected:", genre)
+    message_placeholder.markdown(f"Changing language to {lang}")
 
-st.write("You selected:", genre)
 def translate_string(lang_code, string):
     try:
         input_text_elements = [ InputTextItem(text = string) ]
