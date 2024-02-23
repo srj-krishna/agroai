@@ -5,5 +5,5 @@ pinecone-client
 sentence-transformers
 chromadb
 pysqlite3-binary
-googletrans==4.0.0rc1
+pytranslation 1.0.3
 
