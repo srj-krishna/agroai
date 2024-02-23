@@ -16,7 +16,7 @@ with st.sidebar:
     "Select Language",
     ["English", "Malayalam(മലയാളം)"],
     index=None,)
-    message_placeholder.markdown(f"Changing language to {lang}")
+    #message_placeholder.markdown(f"Changing language to {lang}")
 
 def translate_string(lang_code, string):
     try:
