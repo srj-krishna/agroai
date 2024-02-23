@@ -62,6 +62,7 @@ if prompt := st.chat_input("Ask me anything!"):
         for response in app.chat(system_message + prompt):
             msg_placeholder.empty()
             full_response += response
+            print(full_response)
 
         msg_placeholder.markdown(full_response)
         st.session_state.messages.append({"role": "assistant", "content": full_response})
