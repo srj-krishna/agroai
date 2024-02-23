@@ -59,7 +59,7 @@ if prompt := st.chat_input("Ask me anything!"):
         msg_placeholder.markdown("Thinking...")
         full_response = ""
 
-        for response in app.query(system_message + prompt):
+        for response in app.chat(system_message + prompt):
             msg_placeholder.empty()
             full_response += response
 
