@@ -36,6 +36,7 @@ version = embedchain.__version__
 st.title("💬 AgroGPT")
 st.caption("🚀 developed by NeuBiom Labs!")
 system_message = "You are an Agribot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just politely say that you don't have the information."
+lang == "English"
 
 @st.cache_resource
 def agribot():
@@ -83,12 +84,16 @@ if prompt := st.chat_input("Ask me anything!"):
         msg_placeholder = st.empty()
         msg_placeholder.markdown("Thinking...")
         full_response = ""
+        final_response = ""
 
         for response in app.query(system_message + prompt):
             msg_placeholder.empty()
             full_response += response
             # Translate to Malayalam
-            
-        tr_response = translate_string('ml', full_response )    
-        msg_placeholder.markdown(tr_response)
-        st.session_state.messages.append({"role": "assistant", "content": tr_response})
+        if lang == "English":
+            final_response = full_response
+        else:
+            tr_response = translate_string('ml', full_response )   
+            final_response = tr_response
+        msg_placeholder.markdown(final_response)
+        st.session_state.messages.append({"role": "assistant", "content": final_response})
