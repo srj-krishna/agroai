@@ -77,7 +77,7 @@ if prompt := st.chat_input("Ask me anything!"):
 
             if translation:
                for translated_text in translation.translations:
-                   print(f"Text was translated to: '{translated_text.to}' and the result is: '{translated_text.text}'.")
+                   #print(f"Text was translated to: '{translated_text.to}' and the result is: '{translated_text.text}'.")
                    tr_response += translated_text.text
 
             
