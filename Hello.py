@@ -37,6 +37,7 @@ st.title("💬 AgroGPT")
 st.caption("🚀 developed by NeuBiom Labs!")
 system_message = "You are an Agribot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just politely say that you don't have the information."
 lang = "English"
+final_prompt = ""
 
 @st.cache_resource
 def agribot():
@@ -67,14 +68,19 @@ if prompt := st.chat_input("Ask me anything!"):
         st.markdown(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
         
-  
+    if lang == "English":
+            final_prompt = prompt
+    else:
+            tr_prompt = translate_string('en', prompt)   
+            final_prompt = tr_prompt
+            
     with st.chat_message("assistant"):
         msg_placeholder = st.empty()
         msg_placeholder.markdown("Thinking...")
         full_response = ""
         final_response = ""
 
-        for response in app.query(system_message + prompt):
+        for response in app.query(system_message + final_prompt):
             msg_placeholder.empty()
             full_response += response
             # Translate to Malayalam
