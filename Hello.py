@@ -87,7 +87,11 @@ if prompt := st.chat_input("Ask me anything!"):
             full_response += response
             
             # Translate to Malayalam
-        
+        if full_response.startswith("You are a Q&A expert system."):
+            parts = text.split("Answer:")
+            if len(parts) > 1:
+               full_response = parts[1].strip()
+                
         if lang == "English":
             final_response = full_response
         else:
