@@ -28,14 +28,11 @@ def translate_string(from_lang, to_lang, string):
         return string  # return original string if translation fails
 
 def get_final_answer(text):
-    if text.startswith("You are a Q&A expert system."):
         parts = text.rsplit("Answer:", 1)
         if len(parts) > 1:
             return parts[-1].strip()  # Stripping to remove any leading/trailing whitespace
         else:
             return "No answer found."
-    else:
-        return "Text does not start with the specified sentence."
 
 st.set_page_config(
     page_title=("AgroGPT"),
