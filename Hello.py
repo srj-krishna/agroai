@@ -27,7 +27,15 @@ def translate_string(from_lang, to_lang, string):
         print(f"Message: {exception.error.message}")
         return string  # return original string if translation fails
 
-
+def get_final_answer(text):
+    if text.startswith("You are a Q&A expert system."):
+        parts = text.rsplit("Answer:", 1)
+        if len(parts) > 1:
+            return parts[-1].strip()  # Stripping to remove any leading/trailing whitespace
+        else:
+            return "No answer found."
+    else:
+        return "Text does not start with the specified sentence."
 
 st.set_page_config(
     page_title=("AgroGPT"),
@@ -87,11 +95,12 @@ if prompt := st.chat_input("Ask me anything!"):
             full_response += response
             
             # Translate to Malayalam
-                
+        result_response = str(full_response)
+        result = get_final_answer(result_response)
         if lang == "English":
-            final_response = full_response
+            final_response = result
         else:
-            tr_response = translate_string('en','ml', full_response )   
+            tr_response = translate_string('en','ml', result )   
             final_response = tr_response
         
         msg_placeholder.markdown(final_response)
