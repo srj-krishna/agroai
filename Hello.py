@@ -26,7 +26,18 @@ def translate_string(from_lang, to_lang, string):
         print(f"Error Code: {exception.error.code}")
         print(f"Message: {exception.error.message}")
         return string  # return original string if translation fails
-    
+
+def get_answer(text):
+    if text.startswith("You are a Q&A expert system."):
+        parts = text.split("Answer:")
+        if len(parts) > 1:
+            answer=parts[1]
+        else:
+            answer=""
+    else:
+        answer = ""
+    return answer
+
 st.set_page_config(
     page_title=("AgroGPT"),
     page_icon="🌱",
@@ -83,8 +94,9 @@ if prompt := st.chat_input("Ask me anything!"):
         for response in app.query(system_message+final_prompt):
             msg_placeholder.empty()
             full_response += response
-            print(response)
+            #print(response)
             # Translate to Malayalam
+        full_response = get_answer(full_response)
         if lang == "English":
             final_response = full_response
         else:
