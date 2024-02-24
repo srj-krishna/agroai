@@ -95,9 +95,10 @@ if prompt := st.chat_input("Ask me anything!"):
             
             # Translate to Malayalam
         
-        print(full_response)
+        
         ans_response = get_ans(full_response)
         full_response = ans_response
+        print(full_response)
         if lang == "English":
             final_response = full_response
         else:
