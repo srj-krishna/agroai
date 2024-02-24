@@ -34,8 +34,6 @@ def get_answer(text):
             answer=parts[1]
         else:
             answer=""
-    else:
-        answer = ""
     return answer
 
 st.set_page_config(
