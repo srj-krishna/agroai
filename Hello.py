@@ -80,7 +80,7 @@ if prompt := st.chat_input("Ask me anything!"):
         full_response = ""
         final_response = ""
 
-        for response in app.chat(system_message + final_prompt):
+        for response in app.query(system_message + final_prompt):
             msg_placeholder.empty()
             full_response += response
             # Translate to Malayalam
