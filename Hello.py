@@ -29,7 +29,7 @@ def translate_string(from_lang, to_lang, string):
 
 def get_ans(text):
     if text.startswith("You are a Q&A expert system."):
-        parts = text.split("Answer:")
+        parts = text.split("Answer:",1)
         if len(parts) > 1:
             answer=parts[1]
         else:
