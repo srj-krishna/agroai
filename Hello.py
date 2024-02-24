@@ -27,7 +27,7 @@ def translate_string(from_lang, to_lang, string):
         print(f"Message: {exception.error.message}")
         return string  # return original string if translation fails
 
-def get_answer(text):
+def get_ans(text):
     if text.startswith("You are a Q&A expert system."):
         parts = text.split("Answer:")
         if len(parts) > 1:
@@ -96,7 +96,7 @@ if prompt := st.chat_input("Ask me anything!"):
             # Translate to Malayalam
         
         print(full_response)
-        final_response = get_answer(full_response)
+        final_response = get_ans(full_response)
         if lang == "English":
             final_response = full_response
         else:
