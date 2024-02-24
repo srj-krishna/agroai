@@ -66,7 +66,7 @@ for message in st.session_state.messages:
 with st.sidebar:
     lang = st.radio(
     "Select Language",
-    ["English", "Malayalam(മലയാളം)"], index=None)
+    ["English", "Malayalam(മലയാളം)"], index=0)
 
 if prompt := st.chat_input("Ask me anything!"):
     app = agribot()
