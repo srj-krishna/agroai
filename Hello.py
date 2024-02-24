@@ -90,7 +90,7 @@ if prompt := st.chat_input("Ask me anything!"):
         if full_response.startswith("You are a Q&A expert system."):
             parts = text.split("Answer:")
             if len(parts) > 1:
-               full_response = parts[1].strip()
+               full_response = parts[1]
                 
         if lang == "English":
             final_response = full_response
