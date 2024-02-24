@@ -33,7 +33,7 @@ def get_answer(text):
         if len(parts) > 1:
             answer=parts[1]
         else:
-            answer=""
+            answer="."
     return answer
 
 st.set_page_config(
@@ -96,7 +96,7 @@ if prompt := st.chat_input("Ask me anything!"):
             # Translate to Malayalam
         
         print(full_response)
-        #full_response = get_answer(full_response)
+        final_response = get_answer(full_response)
         if lang == "English":
             final_response = full_response
         else:
