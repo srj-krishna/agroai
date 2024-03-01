@@ -35,19 +35,19 @@ def get_final_answer(text):
             return "No answer found."
 
 st.set_page_config(
-    page_title=("AgroGPT"),
+    page_title=("AgroBot"),
     page_icon="🌱",
     )
 
 version = embedchain.__version__
-st.title("💬 AgroGPT")
+st.title("💬 AgroBot")
 st.caption("🚀 developed by NeuBiom Labs!")
-system_message = "You are an Agribot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just say that you don't have the information."
+system_message = "You are an Agrobot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just say that you don't have the information."
 lang = "English"
 final_prompt = ""
 
 @st.cache_resource
-def agribot():
+def agrograph():
     return embedchain.App.from_config("config.yaml")
     
 if "messages" not in st.session_state:
@@ -69,7 +69,7 @@ with st.sidebar:
     ["English", "Malayalam(മലയാളം)"], index=0)
 
 if prompt := st.chat_input("Ask me anything!"):
-    app = agribot()
+    app = agrograph()
  
     with st.chat_message("user"):
         st.markdown(prompt)
