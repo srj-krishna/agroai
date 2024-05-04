@@ -35,12 +35,12 @@ def get_final_answer(text):
             return "No answer found."
 
 st.set_page_config(
-    page_title=("AgroBot"),
+    page_title=("AgroNeuBot"),
     page_icon="🌱",
     )
 
 version = embedchain.__version__
-st.title("💬 AgroBot")
+st.title("💬 AgroNeuBot")
 st.caption("🚀 powered by AgroNeuLM and AgroNeuGraph from NeuBiom Labs!")
 system_message = "You are an Agrobot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just say that you don't have the information."
 lang = "English"
