@@ -41,7 +41,7 @@ st.set_page_config(
 
 version = embedchain.__version__
 st.title("💬 AgroBot")
-st.caption("🚀 powered by AgroGraph from NeuBiom Labs!")
+st.caption("🚀 powered by AgroNeuLM and AgroNeuGraph from NeuBiom Labs!")
 system_message = "You are an Agrobot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just say that you don't have the information."
 lang = "English"
 final_prompt = ""
