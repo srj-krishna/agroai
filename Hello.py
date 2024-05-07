@@ -47,7 +47,7 @@ lang = "English"
 final_prompt = ""
 
 @st.cache_resource
-def agrograph():
+def agroneugraph():
     return embedchain.App.from_config("config.yaml")
     
 if "messages" not in st.session_state:
@@ -69,7 +69,7 @@ with st.sidebar:
     ["English", "Malayalam(മലയാളം)"], index=0)
 
 if prompt := st.chat_input("Ask me anything!"):
-    app = agrograph()
+    app = agroneugraph()
  
     with st.chat_message("user"):
         st.markdown(prompt)
