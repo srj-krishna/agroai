@@ -113,8 +113,6 @@ with st.sidebar:
                 st.write("## Current Weather Status")
                 st.write("**Description:**", weather_description)
                 st.write("**Temperature:**", temperature, "°C")
-                st.write("**Min Temperature:**", min_temperature, "°C")
-                st.write("**Max Temperature:**", max_temperature, "°C")
                 st.write("**Humidity:**", humidity, "%")
                 st.write("**Wind Speed:**", wind_speed, "m/s")
             
