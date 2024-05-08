@@ -109,7 +109,7 @@ with st.sidebar:
                 latitude = geoloc['coords']['latitude']
                 longitude = geoloc['coords']['longitude']
                 weather_data = find_current_weather(latitude, longitude) 
-                region = geolocator.reverse(latitude+","+longitude)
+                region = geolocator.reverse(latitude,",",longitude)
                 address = region.raw['address']
                 state = address.get('state', '')
                 country = address.get('country', '')
