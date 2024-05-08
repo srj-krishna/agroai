@@ -7,7 +7,9 @@ from azure.ai.translation.text import TextTranslationClient, TranslatorCredentia
 from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
 from streamlit_geolocation import streamlit_geolocation
+from streamlit_js_eval import get_geolocation
 import requests
+
 
 WEATHER_KEY = "a83787e98421eae60ced116f70771a85"
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
