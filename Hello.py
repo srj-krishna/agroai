@@ -92,7 +92,7 @@ if prompt := st.chat_input("Ask me anything!"):
         
     if lang == "English":
         final_prompt = prompt
-    if lang != "English":
+    else:
         tr_prompt = translate_string(lang_code, 'en', prompt)   
         final_prompt = tr_prompt
             
