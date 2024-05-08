@@ -107,7 +107,7 @@ with st.sidebar:
 
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
-    selected_state = st.selectbox("Set Region Manually", states)
+    
     # Display a message while waiting for geolocation
     #st.write("👇Please share your location for context-specific recommendations.")
     if st.checkbox("Share my location"):
@@ -123,6 +123,11 @@ with st.sidebar:
                 state = address.get('state', '')
                 country = address.get('country', '')
                 st.write("📍Region:",city,",",state,",", country)
+                set_location_button = st.button("Reset Region Manually")
+                selected_state = st.selectbox("Select State", states)
+                # Function to set location when the button is clicked
+                if set_location_button:
+                    state = selected_state
                 # Display weather data here
                 # Extracting relevant information from the JSON response
                 weather_description = weather_data['weather'][0]['description']
