@@ -11,7 +11,7 @@ import requests
 from geopy.geocoders import Nominatim
 
 # initialize Nominatim API
-georegionlocator = Nominatim(user_agent="neugeoloc")
+geolocator = Nominatim(user_agent="neugeoloc")
 
 WEATHER_KEY = "a83787e98421eae60ced116f70771a85"
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
