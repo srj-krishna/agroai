@@ -68,7 +68,7 @@ with st.sidebar:
     lang = st.radio(
     "Select Language",
     ["English", "Malayalam(മലയാളം)", "Hindi(हिंदी)", "Tamil(தமிழ்)", "Kannada(ಕನ್ನಡ)", "Telugu(తెలుగు)"], index=1)
-
+    st.caption("💬 Language set to " + lang)
     if lang == "English":
         lang_code = 'en'
     elif lang == "Malayalam(മലയാളം)":
