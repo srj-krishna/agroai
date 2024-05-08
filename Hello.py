@@ -112,8 +112,9 @@ if prompt := st.chat_input("Ask me anything!"):
         if lang == "English":
             final_response = result
         else:
-            tr_response = translate_string('en','ml', result )   
+            tr_response = translate_string('en',lang_code, result )   
             final_response = tr_response
+        
         
         msg_placeholder.markdown(final_response)
         st.session_state.messages.append({"role": "assistant", "content": final_response})
