@@ -82,10 +82,11 @@ with st.sidebar:
     elif lang == "Telugu(తెలుగు)":
         lang_code = 'te'
 
+    
+    # Display a message while waiting for geolocation
+    st.write("Share location")
     # Display the JavaScript to get geolocation
     loc = streamlit_geolocation()
-    # Display a message while waiting for geolocation
-    st.write("Waiting for geolocation...")
     st.write(f"Your coordinates are {loc}")
     
     
