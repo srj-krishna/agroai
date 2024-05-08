@@ -18,27 +18,10 @@ text_translator = TextTranslationClient(credential = TranslatorCredential("0d8e1
 
 def find_current_weather(lat, lon):
     base_url  = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={WEATHER_KEY}&units=metric"
-    weather_data = requests.get(base_url).json()
-    return weather_data
+    weatherdata = requests.get(base_url).json()
+    return weatherdata
 
-def display_weather(weather_data):
-    # Extracting relevant information from the JSON response
-    weather_description = weather_data['weather'][0]['description']
-    temperature = weather_data['main']['temp']
-    min_temperature = weather_data['main']['temp_min']
-    max_temperature = weather_data['main']['temp_max']
-    humidity = weather_data['main']['humidity']
-    wind_speed = weather_data['wind']['speed']
 
-    # Displaying the weather details
-    st.sidebar.write("## Current Weather")
-    st.sidebar.write("**Description:**", weather_description)
-    st.sidebar.write("**Temperature:**", temperature, "°C")
-    st.sidebar.write("**Min Temperature:**", min_temperature, "°C")
-    st.sidebar.write("**Max Temperature:**", max_temperature, "°C")
-    st.sidebar.write("**Humidity:**", humidity, "%")
-    st.sidebar.write("**Wind Speed:**", wind_speed, "m/s")
-    
 def translate_string(from_lang, to_lang, string):
     try:
         input_text_elements = [ InputTextItem(text = string) ]
@@ -114,10 +97,24 @@ with st.sidebar:
         geoloc = get_geolocation()
         latitude = geoloc['coords']['latitude']
         longitude = geoloc['coords']['longitude']
-        general,temperature,icon = find_current_weather(latitude, longitude)
-        st.sidebar.write(f"Weather Details")
-        st.write(f"Temperature: {temperature}")
+        weather_data = find_current_weather(latitude, longitude)
+        # Extracting relevant information from the JSON response
+        weather_description = weather_data['weather'][0]['description']
+        temperature = weather_data['main']['temp']
+        min_temperature = weather_data['main']['temp_min']
+        max_temperature = weather_data['main']['temp_max']
+        humidity = weather_data['main']['humidity']
+        wind_speed = weather_data['wind']['speed']
     
+        # Displaying the weather details
+        st.write("## Current Weather Status")
+        st.write("**Description:**", weather_description)
+        st.write("**Temperature:**", temperature, "°C")
+        st.write("**Min Temperature:**", min_temperature, "°C")
+        st.write("**Max Temperature:**", max_temperature, "°C")
+        st.write("**Humidity:**", humidity, "%")
+        st.write("**Wind Speed:**", wind_speed, "m/s")
+            
 st.caption("💬 Language set to " + lang)
 if prompt := st.chat_input("Ask me anything!"):
     app = agroneugraph()
