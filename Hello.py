@@ -92,11 +92,8 @@ with st.sidebar:
         lang_code = 'te'
 
         # List of crops
-    crops = ["Wheat", "Rice", "Maize", "Barley", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
-    
-    # Streamlit app layout
-    st.sidebar.title("Select Crop")
-    
+    crops = ["Wheat", "Rice", "Maize", "Coffe", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
+
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
     # Display a message while waiting for geolocation
