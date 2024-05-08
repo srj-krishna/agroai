@@ -88,8 +88,6 @@ with st.sidebar:
         loc = get_geolocation()
         # Display a message while waiting for geolocation
         st.write("Waiting for geolocation...")
-
-    if loc:
         st.write("Latitude:", loc["latitude"])
         st.write("Longitude:", loc["longitude"])
 
