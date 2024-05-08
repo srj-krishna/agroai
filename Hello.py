@@ -70,7 +70,6 @@ with st.sidebar:
     ["English", "Malayalam(മലയാളം)", "Hindi(हिंदी)", "Tamil(தமிழ்)", "Kannada(ಕನ್ನಡ)", "Telugu(తెలుగు)"], index=0)
 
     if lang == "English":
-        final_prompt = prompt
         lang_code = 'en'
     elif lang == "Malayalam(മലയാളം)":
         lang_code = 'ml'
