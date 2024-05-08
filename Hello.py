@@ -67,7 +67,7 @@ for message in st.session_state.messages:
 with st.sidebar:
     lang = st.radio(
     "Select Language",
-    ["English", "Malayalam(മലയാളം)", "Hindi(हिंदी)", "Tamil(தமிழ்)", "Kannada(ಕನ್ನಡ)", "Telugu(తెలుగు)"], index=0)
+    ["English", "Malayalam(മലയാളം)", "Hindi(हिंदी)", "Tamil(தமிழ்)", "Kannada(ಕನ್ನಡ)", "Telugu(తెలుగు)"], index=1)
 
     if lang == "English":
         lang_code = 'en'
