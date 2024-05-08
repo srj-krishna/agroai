@@ -92,7 +92,7 @@ with st.sidebar:
         lang_code = 'te'
 
     # Display a message while waiting for geolocation
-    st.write("👇Please share your location for region-specific answers based on Agro-Climatic zones .")
+    st.write("👇Please share your location for context-specific recommendations based on Agro-Climatic zones.")
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
         latitude = geoloc['coords']['latitude']
@@ -107,7 +107,7 @@ with st.sidebar:
         wind_speed = weather_data['wind']['speed']
     
         # Displaying the weather details
-        st.write("# Current Weather Status")
+        st.write("## Current Weather Status")
         st.write("**Description:**", weather_description)
         st.write("**Temperature:**", temperature, "°C")
         st.write("**Min Temperature:**", min_temperature, "°C")
