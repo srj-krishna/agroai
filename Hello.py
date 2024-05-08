@@ -96,6 +96,7 @@ with st.sidebar:
 
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
+    
     # Display a message while waiting for geolocation
     #st.write("👇Please share your location for context-specific recommendations.")
     if st.checkbox("Share my location"):
