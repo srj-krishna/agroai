@@ -96,10 +96,18 @@ with st.sidebar:
 
         # List of crops
     crops = ["Wheat", "Rice", "Maize", "Coffee","Coconut", "Arecanut", "Cashew", "Rubber", "Cardamom", "Banana", "Mango", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
+    # List of states in India
+    states = [
+        "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+        "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
+        "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram",
+        "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana",
+        "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+    ]
 
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
-    
+    selected_state = st.selectbox("Set Region Manually", states)
     # Display a message while waiting for geolocation
     #st.write("👇Please share your location for context-specific recommendations.")
     if st.checkbox("Share my location"):
