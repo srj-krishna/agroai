@@ -82,13 +82,12 @@ with st.sidebar:
     elif lang == "Telugu(తెలుగు)":
         lang_code = 'te'
 
-    if st.button("Share Geolocation"):
-        # Display the JavaScript to get geolocation
-        loc = streamlit_geolocation()
-        # Display a message while waiting for geolocation
-        st.write("Waiting for geolocation...")
-        st.write(f"Your coordinates are {loc}")
-
+    # Display the JavaScript to get geolocation
+    loc = streamlit_geolocation()
+    # Display a message while waiting for geolocation
+    st.write("Waiting for geolocation...")
+    st.write(f"Your coordinates are {loc}")
+    
     
 st.caption("💬 Language set to " + lang)
 if prompt := st.chat_input("Ask me anything!"):
