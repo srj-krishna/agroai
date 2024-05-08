@@ -9,3 +9,4 @@ azure-ai-translation-text
 azure-ai-textanalytics
 streamlit-geolocation
 streamlit_js_eval
+geopy
