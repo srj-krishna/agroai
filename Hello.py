@@ -7,10 +7,12 @@ from azure.ai.translation.text import TextTranslationClient, TranslatorCredentia
 from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
 
-text_translator = TextTranslationClient(credential = TranslatorCredential("0d8e18fbd4c44cb28f975e286e1cba63", "southeastasia"));
+
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
+os.environ["TRANSLATE_API_KEY"] = "0d8e18fbd4c44cb28f975e286e1cba63"
 
+text_translator = TextTranslationClient(credential = TranslatorCredential(TRANSLATE_API_KEY, "southeastasia"));
 
 def translate_string(from_lang, to_lang, string):
     try:
