@@ -111,9 +111,10 @@ with st.sidebar:
                 weather_data = find_current_weather(latitude, longitude) 
                 region = geolocator.reverse(str(latitude)+","+str(longitude))
                 address = region.raw['address']
+                city = address.get('city', '')
                 state = address.get('state', '')
                 country = address.get('country', '')
-                st.write("📍Region:",state,",", country)
+                st.write("📍Region:",city,",",state,",", country)
                 # Display weather data here
                 # Extracting relevant information from the JSON response
                 weather_description = weather_data['weather'][0]['description']
