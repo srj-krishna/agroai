@@ -91,6 +91,14 @@ with st.sidebar:
     elif lang == "Telugu(తెలుగు)":
         lang_code = 'te'
 
+        # List of crops
+    crops = ["Wheat", "Rice", "Maize", "Barley", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
+    
+    # Streamlit app layout
+    st.sidebar.title("Select Crop")
+    
+    # Create dropdown menu for selecting crop
+    selected_crop = st.sidebar.selectbox("Select Crop", crops)
     # Display a message while waiting for geolocation
     st.write("👇Please share your location for context-specific recommendations.")
     if st.checkbox("Share my location"):
@@ -120,6 +128,8 @@ with st.sidebar:
                 st.error("Error: Unable to retrieve latitude and longitude.")
         else:
             st.error("Error: Geolocation data could not be retrieved.")
+
+  
         
             
 st.caption("💬 Language set to " + lang)
