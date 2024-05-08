@@ -122,7 +122,6 @@ with st.sidebar:
                 city = address.get('city', '')
                 state = address.get('state', '')
                 country = address.get('country', '')
-                st.write("📍Region:",city,",",state,",", country)
                 set_location_button = st.button("Reset Region Manually")
                 # Function to set location when the button is clicked
                 if set_location_button:
@@ -130,6 +129,7 @@ with st.sidebar:
                     state = selected_state
                 # Display weather data here
                 # Extracting relevant information from the JSON response
+                st.write("📍Region:",city,",",state,",", country)
                 weather_description = weather_data['weather'][0]['description']
                 temperature = weather_data['main']['temp']
                 min_temperature = weather_data['main']['temp_min']
