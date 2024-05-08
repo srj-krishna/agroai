@@ -149,7 +149,8 @@ with st.sidebar:
         
             
 st.caption("💬 Language set to " + lang)
-st.caption(" 🎯 Generating recommendations for " + selected_crop + " cultivation in " + city +","+state)
+if selected_crop and city and state:
+    st.caption(" 🎯 Generating recommendations for " + selected_crop + " cultivation in " + city + ", " + state)
 if prompt := st.chat_input("Ask me anything!"):
     app = agroneugraph()
  
