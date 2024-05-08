@@ -11,7 +11,7 @@ import requests
 from geopy.geocoders import Nominatim
 
 # initialize Nominatim API
-geolocator = Nominatim(user_agent="neugeoloc")
+georegionlocator = Nominatim(user_agent="neugeoloc")
 
 WEATHER_KEY = "a83787e98421eae60ced116f70771a85"
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
@@ -108,8 +108,12 @@ with st.sidebar:
             try:
                 latitude = geoloc['coords']['latitude']
                 longitude = geoloc['coords']['longitude']
-                #st.write("## Location: Lat:", latitude, " Lon:", longitude)
                 weather_data = find_current_weather(latitude, longitude) 
+                region = geolocator.reverse(latitude+","+longitude)
+                address = region.raw['address']
+                state = address.get('state', '')
+                country = address.get('country', '')
+                st.write("## Region:"state,",", country)
                 # Display weather data here
                 # Extracting relevant information from the JSON response
                 weather_description = weather_data['weather'][0]['description']
