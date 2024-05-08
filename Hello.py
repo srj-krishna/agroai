@@ -6,6 +6,7 @@ import azure.ai.translation.text
 from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
 from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
+from streamlit_js_eval import streamlit_js_eval, get_geolocation
 
 
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
@@ -81,6 +82,16 @@ with st.sidebar:
         lang_code = 'kn'
     elif lang == "Telugu(తెలుగు)":
         lang_code = 'te'
+
+    if st.button("Share Geolocation"):
+        # Display the JavaScript to get geolocation
+        loc = get_geolocation()
+        # Display a message while waiting for geolocation
+        st.write("Waiting for geolocation...")
+
+        if geolocation:
+            st.write("Latitude:", geolocation["latitude"])
+            st.write("Longitude:", geolocation["longitude"])
 
     
 st.caption("💬 Language set to " + lang)
