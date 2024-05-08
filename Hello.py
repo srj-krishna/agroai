@@ -95,10 +95,17 @@ with st.sidebar:
     st.write("👇Please share your location for context-specific recommendations based on Agro-Climatic zones.")
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
-        latitude = geoloc['coords']['latitude']
-        longitude = geoloc['coords']['longitude']
-        st.write("## Location : Lat:",latitude," Lon:",longitude)
-        weather_data = find_current_weather(latitude, longitude)
+        if geoloc is not None:
+            try:
+                latitude = geoloc['coords']['latitude']
+                longitude = geoloc['coords']['longitude']
+                st.write("## Location: Lat:", latitude, " Lon:", longitude)
+                weather_data = find_current_weather(latitude, longitude)
+                # Display weather data here
+            except KeyError:
+                st.error("Error: Unable to retrieve latitude and longitude.")
+        else:
+            st.error("Error: Geolocation data could not be retrieved.")
         # Extracting relevant information from the JSON response
         weather_description = weather_data['weather'][0]['description']
         temperature = weather_data['main']['temp']
