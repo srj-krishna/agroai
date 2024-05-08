@@ -82,41 +82,6 @@ with st.sidebar:
     elif lang == "Telugu(తెలుగు)":
         lang_code = 'te'
 
-    import streamlit as st
-
-    # JavaScript code to get geolocation
-    get_location_js = """
-    <script>
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            alert("Geolocation is not supported by this browser.");
-        }
-    }
-    function showPosition(position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-        var data = {latitude: lat, longitude: lon};
-        // Send data back to Streamlit
-        Streamlit.setComponentValue(data);
-    }
-    </script>
-    """
-    
-    # Display button and execute JavaScript on button click
-    if st.button("Share Geolocation"):
-        # Display the JavaScript to get geolocation
-        st.markdown(get_location_js, unsafe_allow_html=True)
-        # Display a message while waiting for geolocation
-        st.write("Waiting for geolocation...")
-    
-        # Get the geolocation data from Streamlit component
-        geolocation = st.streamlit_component("geolocation")
-    
-        if geolocation:
-            st.write("Latitude:", geolocation["latitude"])
-            st.write("Longitude:", geolocation["longitude"])
     
 
 if prompt := st.chat_input("Ask me anything!"):
