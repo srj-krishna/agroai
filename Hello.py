@@ -19,15 +19,25 @@ text_translator = TextTranslationClient(credential = TranslatorCredential("0d8e1
 def find_current_weather(lat, lon):
     base_url  = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={WEATHER_KEY}&units=metric"
     weather_data = requests.get(base_url).json()
-    try:
-        general = weather_data['weather'][0]['main']
-        icon_id = weather_data['weather'][0]['icon']
-        temperature = round(weather_data['main']['temp'])
-        icon = f"http://openweathermap.org/img/wn/{icon_id}@2x.png"
-    except KeyError:
-        st.error("Weather Not Found")
-        st.stop()
-    return general,temperature,icon
+    return weather_data
+
+def display_weather(weather_data):
+    # Extracting relevant information from the JSON response
+    weather_description = weather_data['weather'][0]['description']
+    temperature = weather_data['main']['temp']
+    min_temperature = weather_data['main']['temp_min']
+    max_temperature = weather_data['main']['temp_max']
+    humidity = weather_data['main']['humidity']
+    wind_speed = weather_data['wind']['speed']
+
+    # Displaying the weather details
+    st.sidebar.write("## Current Weather")
+    st.sidebar.write("**Description:**", weather_description)
+    st.sidebar.write("**Temperature:**", temperature, "°C")
+    st.sidebar.write("**Min Temperature:**", min_temperature, "°C")
+    st.sidebar.write("**Max Temperature:**", max_temperature, "°C")
+    st.sidebar.write("**Humidity:**", humidity, "%")
+    st.sidebar.write("**Wind Speed:**", wind_speed, "m/s")
     
 def translate_string(from_lang, to_lang, string):
     try:
@@ -102,11 +112,10 @@ with st.sidebar:
     st.write("👇Please share your location for region-specific answers based on Agro-Climatic zones .")
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
-        st.write(f"Your coordinates are {geoloc}")
         latitude = geoloc['coords']['latitude']
         longitude = geoloc['coords']['longitude']
-        st.write(f"Your coordinates are {latitude} and {longitude}")
         general,temperature,icon = find_current_weather(latitude, longitude)
+        st.sidebar.write(f"Weather Details")
         st.write(f"Temperature: {temperature}")
     
 st.caption("💬 Language set to " + lang)
