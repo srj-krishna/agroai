@@ -89,7 +89,10 @@ with st.sidebar:
     # Display the JavaScript to get geolocation
     loc = streamlit_geolocation()
     st.write(f"Your coordinates are {loc}")
-    
+
+    if st.checkbox("Check my location"):
+        geoloc = get_geolocation()
+        st.write(f"Your coordinates are {geoloc}")
     
 st.caption("💬 Language set to " + lang)
 if prompt := st.chat_input("Ask me anything!"):
