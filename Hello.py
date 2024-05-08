@@ -99,7 +99,7 @@ with st.sidebar:
             try:
                 latitude = geoloc['coords']['latitude']
                 longitude = geoloc['coords']['longitude']
-                #st.write("## Location: Lat:", latitude, " Lon:", longitude)
+                st.write("## Location: Lat:", latitude, " Lon:", longitude)
                 weather_data = find_current_weather(latitude, longitude) 
                 # Display weather data here
                 # Extracting relevant information from the JSON response
