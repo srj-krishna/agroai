@@ -90,7 +90,9 @@ if prompt := st.chat_input("Ask me anything!"):
         st.markdown(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
         
-    if lang != "English":
+    if lang == "English":
+        final_prompt = prompt
+    else:    
         tr_prompt = translate_string(lang_code, 'en', prompt)   
         final_prompt = tr_prompt
             
