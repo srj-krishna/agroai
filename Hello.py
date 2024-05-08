@@ -124,9 +124,9 @@ with st.sidebar:
                 country = address.get('country', '')
                 st.write("📍Region:",city,",",state,",", country)
                 set_location_button = st.button("Reset Region Manually")
-                selected_state = st.selectbox("Select State", states)
                 # Function to set location when the button is clicked
                 if set_location_button:
+                    selected_state = st.selectbox("Select State", states)
                     state = selected_state
                 # Display weather data here
                 # Extracting relevant information from the JSON response
