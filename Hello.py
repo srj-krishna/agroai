@@ -69,6 +69,20 @@ with st.sidebar:
     "Select Language",
     ["English", "Malayalam(മലയാളം)", "Hindi(हिंदी)", "Tamil(தமிழ்)", "Kannada(ಕನ್ನಡ)", "Telugu(తెలుగు)"], index=0)
 
+if lang == "English":
+        final_prompt = prompt
+        lang_code = 'en'
+    elif lang == "Malayalam(മലയാളം)":
+        lang_code = 'ml'
+    elif lang == "Hindi(हिंदी)":
+        lang_code = 'hi'
+    elif lang == "Tamil(தமிழ்)":
+        lang_code = 'ta'
+    elif lang == "Kannada(ಕನ್ನಡ)":
+        lang_code = 'kn'
+    elif lang == "Telugu(తెలుగు)":
+        lang_code = 'te'
+
 if prompt := st.chat_input("Ask me anything!"):
     app = agroneugraph()
  
@@ -77,10 +91,10 @@ if prompt := st.chat_input("Ask me anything!"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         
     if lang == "English":
-            final_prompt = prompt
-    else:
-            tr_prompt = translate_string('ml','en', prompt)   
-            final_prompt = tr_prompt
+        final_prompt = prompt
+    if lang != "English":
+        tr_prompt = translate_string(lang_code, 'en', prompt)   
+        final_prompt = tr_prompt
             
     with st.chat_message("assistant"):
         msg_placeholder = st.empty()
