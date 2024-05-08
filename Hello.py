@@ -6,7 +6,6 @@ import azure.ai.translation.text
 from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
 from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
-from streamlit_geolocation import streamlit_geolocation
 from streamlit_js_eval import get_geolocation
 import requests
 
@@ -88,11 +87,7 @@ with st.sidebar:
 
     # Display a message while waiting for geolocation
     st.write("👇Share your location for region-specific answers based on Agro-Climatic zones .")
-    # Display the JavaScript to get geolocation
-    loc = streamlit_geolocation()
-    st.write(f"Your coordinates are {loc}")
-
-    if st.checkbox("Check my location"):
+    if st.checkbox("Share my location"):
         geoloc = get_geolocation()
         st.write(f"Your coordinates are {geoloc}")
     
