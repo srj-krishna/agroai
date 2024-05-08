@@ -89,9 +89,9 @@ with st.sidebar:
         # Display a message while waiting for geolocation
         st.write("Waiting for geolocation...")
 
-        if geolocation:
-            st.write("Latitude:", geolocation["latitude"])
-            st.write("Longitude:", geolocation["longitude"])
+    if geolocation:
+        st.write("Latitude:", loc["latitude"])
+        st.write("Longitude:", loc["longitude"])
 
     
 st.caption("💬 Language set to " + lang)
