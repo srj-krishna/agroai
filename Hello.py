@@ -84,7 +84,7 @@ with st.sidebar:
 
     
     # Display a message while waiting for geolocation
-    st.write("Share my location")
+    st.write("👇Share my location")
     # Display the JavaScript to get geolocation
     loc = streamlit_geolocation()
     st.write(f"Your coordinates are {loc}")
