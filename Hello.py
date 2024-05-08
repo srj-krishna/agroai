@@ -103,8 +103,8 @@ with st.sidebar:
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
         st.write(f"Your coordinates are {geoloc}")
-        latitude = data['coords']['latitude']
-        longitude = data['coords']['longitude']
+        latitude = geoloc['coords']['latitude']
+        longitude = geoloc['coords']['longitude']
         st.write(f"Your coordinates are {latitude} and {longitude}")
         general,temperature,icon = find_current_weather(latitude, longitude)
         st.write(f"Temperature: {temperature}")
