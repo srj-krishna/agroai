@@ -100,28 +100,29 @@ with st.sidebar:
                 latitude = geoloc['coords']['latitude']
                 longitude = geoloc['coords']['longitude']
                 st.write("## Location: Lat:", latitude, " Lon:", longitude)
-                weather_data = find_current_weather(latitude, longitude)
+                weather_data = find_current_weather(latitude, longitude) 
                 # Display weather data here
+                # Extracting relevant information from the JSON response
+                weather_description = weather_data['weather'][0]['description']
+                temperature = weather_data['main']['temp']
+                min_temperature = weather_data['main']['temp_min']
+                max_temperature = weather_data['main']['temp_max']
+                humidity = weather_data['main']['humidity']
+                wind_speed = weather_data['wind']['speed']
+                # Displaying the weather details
+                st.write("## Current Weather Status")
+                st.write("**Description:**", weather_description)
+                st.write("**Temperature:**", temperature, "°C")
+                st.write("**Min Temperature:**", min_temperature, "°C")
+                st.write("**Max Temperature:**", max_temperature, "°C")
+                st.write("**Humidity:**", humidity, "%")
+                st.write("**Wind Speed:**", wind_speed, "m/s")
+            
             except KeyError:
                 st.error("Error: Unable to retrieve latitude and longitude.")
         else:
             st.error("Error: Geolocation data could not be retrieved.")
-        # Extracting relevant information from the JSON response
-        weather_description = weather_data['weather'][0]['description']
-        temperature = weather_data['main']['temp']
-        min_temperature = weather_data['main']['temp_min']
-        max_temperature = weather_data['main']['temp_max']
-        humidity = weather_data['main']['humidity']
-        wind_speed = weather_data['wind']['speed']
-    
-        # Displaying the weather details
-        st.write("## Current Weather Status")
-        st.write("**Description:**", weather_description)
-        st.write("**Temperature:**", temperature, "°C")
-        st.write("**Min Temperature:**", min_temperature, "°C")
-        st.write("**Max Temperature:**", max_temperature, "°C")
-        st.write("**Humidity:**", humidity, "%")
-        st.write("**Wind Speed:**", wind_speed, "m/s")
+        
             
 st.caption("💬 Language set to " + lang)
 if prompt := st.chat_input("Ask me anything!"):
