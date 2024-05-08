@@ -123,10 +123,7 @@ with st.sidebar:
             
             except KeyError:
                 st.error("Error: Unable to retrieve latitude and longitude.")
-        else:
-            st.error("Error: Geolocation data could not be retrieved.")
 
-  
         
             
 st.caption("💬 Language set to " + lang)
