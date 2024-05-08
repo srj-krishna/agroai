@@ -92,7 +92,7 @@ with st.sidebar:
         lang_code = 'te'
 
     # Display a message while waiting for geolocation
-    st.write("👇Please share your location for context-specific recommendations based on Agro-Climatic zones.")
+    st.write("👇Please share your location for context-specific recommendations.")
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
         if geoloc is not None:
