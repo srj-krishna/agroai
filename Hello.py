@@ -88,8 +88,7 @@ with st.sidebar:
         loc = get_geolocation()
         # Display a message while waiting for geolocation
         st.write("Waiting for geolocation...")
-        st.write("Latitude:", loc["latitude"])
-        st.write("Longitude:", loc["longitude"])
+        st.write(f"Your coordinates are {loc}")
 
     
 st.caption("💬 Language set to " + lang)
