@@ -7,4 +7,4 @@ chromadb
 pysqlite3-binary
 azure-ai-translation-text 
 azure-ai-textanalytics
-
+streamlit_js_eval
