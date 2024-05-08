@@ -16,6 +16,19 @@ os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 
 text_translator = TextTranslationClient(credential = TranslatorCredential("0d8e18fbd4c44cb28f975e286e1cba63", "southeastasia"));
 
+def find_current_weather(lat, lon):
+    base_url  = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={WEATHER_KEY}&units=metric"
+    weather_data = requests.get(base_url).json()
+    try:
+        general = weather_data['weather'][0]['main']
+        icon_id = weather_data['weather'][0]['icon']
+        temperature = round(weather_data['main']['temp'])
+        icon = f"http://openweathermap.org/img/wn/{icon_id}@2x.png"
+    except KeyError:
+        st.error("Weather Not Found")
+        st.stop()
+    return general,temperature,icon
+    
 def translate_string(from_lang, to_lang, string):
     try:
         input_text_elements = [ InputTextItem(text = string) ]
@@ -90,6 +103,11 @@ with st.sidebar:
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
         st.write(f"Your coordinates are {geoloc}")
+        latitude = data['coords']['latitude']
+        longitude = data['coords']['longitude']
+        st.write(f"Your coordinates are {latitude} and {longitude}")
+        general,temperature,icon = find_current_weather(latitude, longitude)
+        st.write(f"Temperature: {temperature}")
     
 st.caption("💬 Language set to " + lang)
 if prompt := st.chat_input("Ask me anything!"):
