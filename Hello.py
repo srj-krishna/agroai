@@ -67,7 +67,7 @@ for message in st.session_state.messages:
 with st.sidebar:
     lang = st.radio(
     "Select Language",
-    ["English", "Malayalam(മലയാളം)"], index=0)
+    ["English", "Malayalam(മലയാളം)", "Hindi(हिंदी)", "Tamil(தமிழ்)", "Kannada(ಕನ್ನಡ)", "Telugu(తెలుగు)"], index=0)
 
 if prompt := st.chat_input("Ask me anything!"):
     app = agroneugraph()
