@@ -8,7 +8,10 @@ from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
 from streamlit_js_eval import get_geolocation
 import requests
+from geopy.geocoders import Nominatim
 
+# initialize Nominatim API
+geolocator = Nominatim(user_agent="neugeoloc")
 
 WEATHER_KEY = "a83787e98421eae60ced116f70771a85"
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
