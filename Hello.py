@@ -113,7 +113,7 @@ with st.sidebar:
                 address = region.raw['address']
                 state = address.get('state', '')
                 country = address.get('country', '')
-                st.write("## Region:",state,",", country)
+                st.write("#Region:",state,",", country)
                 # Display weather data here
                 # Extracting relevant information from the JSON response
                 weather_description = weather_data['weather'][0]['description']
