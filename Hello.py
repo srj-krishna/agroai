@@ -6,8 +6,7 @@ import azure.ai.translation.text
 from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
 from azure.ai.translation.text.models import InputTextItem
 from azure.core.exceptions import HttpResponseError
-from streamlit_js_eval import streamlit_js_eval, get_geolocation
-
+from streamlit_geolocation import streamlit_geolocation
 
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
@@ -85,7 +84,7 @@ with st.sidebar:
 
     if st.button("Share Geolocation"):
         # Display the JavaScript to get geolocation
-        loc = get_geolocation()
+        loc = streamlit_geolocation()
         # Display a message while waiting for geolocation
         st.write("Waiting for geolocation...")
         st.write(f"Your coordinates are {loc}")
