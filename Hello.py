@@ -122,7 +122,7 @@ with st.sidebar:
                 st.write("**Wind Speed:**", wind_speed, "m/s")
             
             except KeyError:
-                st.error("Error: Unable to retrieve latitude and longitude.")
+                st.error("Error: Unable to retrieve geolocation.")
 
         
             
