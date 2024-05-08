@@ -84,10 +84,9 @@ with st.sidebar:
 
     # Display a message while waiting for geolocation
     st.write("👇Share your location for region-specific answers based on Agro-Climatic zones .")
-    if st.button("Share location"):
-        # Display the JavaScript to get geolocation
-        loc = streamlit_geolocation()
-        st.write(f"Your coordinates are {loc}")
+    # Display the JavaScript to get geolocation
+    loc = streamlit_geolocation()
+    st.write(f"Your coordinates are {loc}")
     
     
 st.caption("💬 Language set to " + lang)
