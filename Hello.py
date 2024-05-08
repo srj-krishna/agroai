@@ -92,7 +92,7 @@ with st.sidebar:
         lang_code = 'te'
 
         # List of crops
-    crops = ["Wheat", "Rice", "Maize", "Coffee", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
+    crops = ["Wheat", "Rice", "Maize", "Coffee","Coconut", "Arecanut", "Cashew", "Rubber", "Cardamom", "Banana", "Mango", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
 
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
