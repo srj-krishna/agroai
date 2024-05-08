@@ -95,9 +95,9 @@ with st.sidebar:
     st.write("👇Please share your location for context-specific recommendations based on Agro-Climatic zones.")
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
-        st.write("## Current Weather Status")
         latitude = geoloc['coords']['latitude']
         longitude = geoloc['coords']['longitude']
+        st.write("## Location : Lat:",latitude," Lon:",longitude)
         weather_data = find_current_weather(latitude, longitude)
         # Extracting relevant information from the JSON response
         weather_description = weather_data['weather'][0]['description']
