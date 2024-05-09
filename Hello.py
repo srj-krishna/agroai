@@ -13,16 +13,32 @@ import pandas as pd
 from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
 
+
+st.set_page_config(
+    page_title=("AgroNeuBot"),
+    page_icon="🌱",
+    )
+
+version = embedchain.__version__
+st.title("💬 AgroNeuBot")
+st.caption("🚀 powered by AgroNeuLM and AgroNeuGraph from NeuBiom Labs!")
+system_message = "You are an AgroNeubot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just say that you don't have the information and only answer questions related to agriculture."
+lang = "English"
+final_prompt = ""
+
+@st.cache_resource
+def agroneugraph():
+    return embedchain.App.from_config("config.yaml")
+
+
 dbsheeturl = "https://docs.google.com/spreadsheets/d/1LGIhtBpKmloR6F6l6VfWEjlCR2cw9hCYpfD7TxPatzY/edit?usp=sharing"
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
 # initialize Nominatim API
 geolocator = Nominatim(user_agent="neugeoloc")
-
 WEATHER_KEY = "a83787e98421eae60ced116f70771a85"
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
-
 text_translator = TextTranslationClient(credential = TranslatorCredential("0d8e18fbd4c44cb28f975e286e1cba63", "southeastasia"));
 
 def find_current_weather(lat, lon):
@@ -53,21 +69,6 @@ def get_final_answer(text):
         else:
             return "No answer found."
 
-st.set_page_config(
-    page_title=("AgroNeuBot"),
-    page_icon="🌱",
-    )
-
-version = embedchain.__version__
-st.title("💬 AgroNeuBot")
-st.caption("🚀 powered by AgroNeuLM and AgroNeuGraph from NeuBiom Labs!")
-system_message = "You are an AgroNeubot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just say that you don't have the information and only answer questions related to agriculture."
-lang = "English"
-final_prompt = ""
-
-@st.cache_resource
-def agroneugraph():
-    return embedchain.App.from_config("config.yaml")
     
 if "messages" not in st.session_state:
     st.session_state.messages = [
