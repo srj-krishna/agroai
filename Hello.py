@@ -147,7 +147,7 @@ with st.sidebar:
         # Displaying the weather details
         st.write("## Current Weather Status")
         st.write("**Description:**", weather_description)
-        st.write("**Temperature:**", temperature, "°C","|","⬇", min_temperature, "°C","*⬆*", max_temperature, "°C")
+        st.write("**Temperature:**", temperature,"°C","|","⬇", min_temperature, "°C","⬆", max_temperature, "°C")
         st.write("**Humidity:**", humidity, "%")
         st.write("**Wind Speed:**", wind_speed, "m/s")
     #userloc = streamlit_geolocation()
