@@ -44,11 +44,11 @@ text_translator = TextTranslationClient(credential = TranslatorCredential(trkey,
 
 def chathistory_dataframe():
     return pd.DataFrame({
-        'Date': ['Date'],
-        'Query': ['Question'],
-        'City': ['City'],
-        'State': ['State'],
-        'Country': ['Country']
+        'Date': [],
+        'Query': [],
+        'City': [],
+        'State': [],
+        'Country': []
     })
 
 def find_current_weather(lat, lon):
@@ -167,7 +167,7 @@ with st.sidebar:
             
 st.caption("💬 Language set to " + lang)
 querylog = chathistory_dataframe()
-conn.update(worksheet="userlog", data=querylog)
+#conn.update(worksheet="userlog", data=querylog)
 if prompt := st.chat_input("Ask me anything!"):
     app = agroneugraph()
  
