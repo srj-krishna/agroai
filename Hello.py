@@ -196,6 +196,7 @@ if prompt := st.chat_input("Ask me anything!"):
     prevlog =prevlog.dropna(how="all")
     newlog = pd.concat([prevlog,querylog])
     st.dataframe(prevlog)
+    st.dataframe(querylog)
     conn.update(worksheet="userlog", data=newlog)        
     with st.chat_message("assistant"):
         msg_placeholder = st.empty()
