@@ -97,7 +97,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
         
-querylog = chathistory_dataframe()
+
 
 with st.sidebar:
     lang = st.radio(
@@ -186,7 +186,7 @@ if prompt := st.chat_input("Ask me anything!"):
     else:    
         tr_prompt = translate_string(lang_code, 'en', prompt)   
         final_prompt = tr_prompt
-
+    querylog = chathistory_dataframe()
     querylog['Date']=datetime.now().date()
     querylog['Query']= final_prompt
     querylog['City']= city
