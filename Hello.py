@@ -12,6 +12,7 @@ from geopy.geocoders import Nominatim
 import pandas as pd
 from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
+from streamlit_geolocation import streamlit_geolocation
 
 
 st.set_page_config(
@@ -130,9 +131,9 @@ with st.sidebar:
 
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
-    
+    userloc = streamlit_geolocation()
     # Display a message while waiting for geolocation
-    #st.write("👇Please share your location for context-specific recommendations.")
+    st.write(userloc)
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
         if geoloc is not None:
