@@ -134,6 +134,7 @@ with st.sidebar:
     ]
 
     # Create dropdown menu for selecting crop
+    st.write("## Specifiy Context")
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
     state = st.sidebar.selectbox("Select Your Region", states)
     if state != "India" and state != "NA": 
