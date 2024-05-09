@@ -35,10 +35,11 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 # initialize Nominatim API
 geolocator = Nominatim(user_agent="neugeoloc")
-WEATHER_KEY = "a83787e98421eae60ced116f70771a85"
+WEATHER_KEY = st.secrets['WEATHER_KEY']
+trkey = st.secrets['TRKEY']
 os.environ["HUGGINGFACE_ACCESS_TOKEN"] = st.secrets['HUGGINGFACE_ACCESS_TOKEN']
 os.environ["PINECONE_API_KEY"] = st.secrets['PINECONE_API_KEY']
-text_translator = TextTranslationClient(credential = TranslatorCredential("0d8e18fbd4c44cb28f975e286e1cba63", "southeastasia"));
+text_translator = TextTranslationClient(credential = TranslatorCredential(trkey, "southeastasia"));
 
 
 def chathistory_dataframe():
