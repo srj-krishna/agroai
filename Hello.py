@@ -182,7 +182,13 @@ if prompt := st.chat_input("Ask me anything!"):
     else:    
         tr_prompt = translate_string(lang_code, 'en', prompt)   
         final_prompt = tr_prompt
-            
+
+    querylog['Date']=datetime.now().date()
+    querylog['Query']= final_prompt
+    querylog['City']= city
+    querylog['State']= state
+    querylog['Country']= country
+    conn.update(worksheet="userlog", data=querylog)        
     with st.chat_message("assistant"):
         msg_placeholder = st.empty()
         msg_placeholder.markdown("Thinking...")
