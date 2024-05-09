@@ -45,10 +45,10 @@ text_translator = TextTranslationClient(credential = TranslatorCredential(trkey,
 def chathistory_dataframe():
     return pd.DataFrame({
         'Date': ['1'],
-        'Query': [],
-        'City': [],
-        'State': [],
-        'Country': []
+        'Query': ['1'],
+        'City': ['1'],
+        'State': ['1'],
+        'Country': ['1']
     })
 
 def find_current_weather(lat, lon):
