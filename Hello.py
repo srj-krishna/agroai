@@ -153,6 +153,7 @@ with st.sidebar:
     #userloc = streamlit_geolocation()
     # Display a message while waiting for geolocation
     #st.write(userloc)
+    '''
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
         if geoloc is not None:
@@ -190,7 +191,7 @@ with st.sidebar:
             except KeyError:
                 st.error("Error: Unable to retrieve geolocation.")
 
-        
+        '''
             
 st.caption("💬 Language set to " + lang)
 
