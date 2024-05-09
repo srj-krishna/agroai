@@ -10,11 +10,8 @@ from streamlit_js_eval import get_geolocation
 import requests
 from geopy.geocoders import Nominatim
 import pandas as pd
-from streamlit_gsheets import GSheetsConnection
+from datetime import datetime
 
-# Establishing a Google Sheets connection
-dbsheeturl = "https://docs.google.com/spreadsheets/d/1LGIhtBpKmloR6F6l6VfWEjlCR2cw9hCYpfD7TxPatzY/edit?usp=sharing"
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
 # initialize Nominatim API
 geolocator = Nominatim(user_agent="neugeoloc")
