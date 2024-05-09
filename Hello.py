@@ -13,6 +13,9 @@ import pandas as pd
 from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
 
+dbsheeturl = "https://docs.google.com/spreadsheets/d/1LGIhtBpKmloR6F6l6VfWEjlCR2cw9hCYpfD7TxPatzY/edit?usp=sharing"
+conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+
 # initialize Nominatim API
 geolocator = Nominatim(user_agent="neugeoloc")
 
