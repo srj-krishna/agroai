@@ -157,7 +157,7 @@ with st.sidebar:
     #st.write(userloc)
     
 st.caption("💬 Language set to " + lang)
-
+st.caption("🎯 Focusing on " + selected_crop + " in " + state )
             
 #conn.update(worksheet="userlog", data=querylog)
 if prompt := st.chat_input("Ask me anything!"):
