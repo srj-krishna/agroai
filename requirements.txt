@@ -1,5 +1,5 @@
 streamlit
-embedchain ==0.1.103
+embedchain==0.1.103
 pinecone-text 
 pinecone-client
 sentence-transformers
