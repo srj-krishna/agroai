@@ -122,7 +122,7 @@ with st.sidebar:
     crops = ["All crops", "Wheat", "Rice", "Maize", "Coffee","Coconut", "Arecanut", "Cashew", "Rubber", "Cardamom", "Banana", "Mango", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
     # List of states in India
     states = [
-        "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+        "India", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
         "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
         "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram",
         "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana",
@@ -131,6 +131,7 @@ with st.sidebar:
 
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
+    state = st.sidebar.selectbox("Select Your Region", states)
     #userloc = streamlit_geolocation()
     # Display a message while waiting for geolocation
     #st.write(userloc)
@@ -146,7 +147,8 @@ with st.sidebar:
                 city = address.get('city', '')
                 state = address.get('state', '')
                 country = address.get('country', '')
-                st.write("📍Region:",city,",",state,",", country)
+                #st.write("📍Region:",city,",",state,",", country)
+                st.write("📍Region:",state)
                 #set_location_button = st.button("Reset Region Manually")
                 # Function to set location when the button is clicked
                 #if set_location_button:
