@@ -136,7 +136,6 @@ with st.sidebar:
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
     state = st.sidebar.selectbox("Select Your Region", states)
-    st.write(selected_crop)
     if state != "India" and state != "NA": 
         weather_data = find_region_weather(state)
         weather_description = weather_data['weather'][0]['description']
@@ -167,6 +166,8 @@ if prompt := st.chat_input("Ask me anything!"):
         st.markdown(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
         
+    system_message = f"You are an AgroNeubot, here to help with information and context-specific recommendations for farming in {state} for the following query and user is interested in cultivation of {selected_crop}. If you don't know something just say that you don't have the information and only answer questions related to agriculture."
+
     if lang == "English":
         final_prompt = prompt
     else:    
