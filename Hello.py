@@ -123,7 +123,7 @@ with st.sidebar:
         lang_code = 'te'
 
         # List of crops
-    crops = ["Any crops", "Wheat", "Rice", "Maize", "Coffee","Coconut", "Arecanut", "Cashew", "Rubber", "Cardamom", "Banana", "Mango", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
+    crops = ["All crops", "Wheat", "Rice", "Maize", "Coffee","Coconut", "Arecanut", "Cashew", "Rubber", "Cardamom", "Banana", "Mango", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
     # List of states in India
     states = [
         "India", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh","Delhi",
