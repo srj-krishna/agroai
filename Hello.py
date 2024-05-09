@@ -166,7 +166,7 @@ if prompt := st.chat_input("Ask me anything!"):
         st.markdown(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
         
-    system_message = f"You are an AgroNeubot, here to help with information and context-specific recommendations for farming in {state} for the following query and user is interested in cultivation of {selected_crop}. If you don't know something just say that you don't have the information and only answer questions related to agriculture."
+    system_message = f"You are an AgroNeubot created ny NeuBiom Labs, here to help with information and context-specific recommendations for farming in {state} for the following query and user is particularly interested in cultivation of {selected_crop}. If you don't know something just say that you don't have the information and only answer questions related to agriculture."
 
     if lang == "English":
         final_prompt = prompt
