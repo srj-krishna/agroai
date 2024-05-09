@@ -31,7 +31,6 @@ def agroneugraph():
     return embedchain.App.from_config("config.yaml")
 
 
-dbsheeturl = "https://docs.google.com/spreadsheets/d/1LGIhtBpKmloR6F6l6VfWEjlCR2cw9hCYpfD7TxPatzY/edit?usp=sharing"
 conn = st.connection("gsheets", type=GSheetsConnection)
 
 # initialize Nominatim API
