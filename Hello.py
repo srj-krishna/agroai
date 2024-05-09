@@ -11,7 +11,7 @@ import requests
 from geopy.geocoders import Nominatim
 import pandas as pd
 from datetime import datetime
-
+from streamlit_gsheets import GSheetsConnection
 
 # initialize Nominatim API
 geolocator = Nominatim(user_agent="neugeoloc")
