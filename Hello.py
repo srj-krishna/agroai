@@ -136,6 +136,7 @@ with st.sidebar:
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
     state = st.sidebar.selectbox("Select Your Region", states)
+    st.write(state)
     if state != "India" and state != "NA": 
         weather_data = find_region_weather(state)
         weather_description = weather_data['weather'][0]['description']
