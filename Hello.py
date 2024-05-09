@@ -156,7 +156,7 @@ with st.sidebar:
     # Display a message while waiting for geolocation
     #st.write(userloc)
     
-st.caption("💬 Language set to " + lang + ", 🎯 Recommendations focusing on " + selected_crop + " for " + state)
+st.caption("💬 Language set to " + lang + " 🎯 Recommendations focusing on " + selected_crop + " for " + state)
             
 #conn.update(worksheet="userlog", data=querylog)
 if prompt := st.chat_input("Ask me anything!"):
