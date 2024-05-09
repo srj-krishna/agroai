@@ -9,7 +9,10 @@ from azure.core.exceptions import HttpResponseError
 from streamlit_js_eval import get_geolocation
 import requests
 from geopy.geocoders import Nominatim
+from streamlit_gsheets import GSheetsConnection
 
+respdbsheet = "https://docs.google.com/spreadsheets/d/1LGIhtBpKmloR6F6l6VfWEjlCR2cw9hCYpfD7TxPatzY/edit?usp=sharing"
+conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 # initialize Nominatim API
 geolocator = Nominatim(user_agent="neugeoloc")
 
