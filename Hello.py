@@ -146,7 +146,7 @@ with st.sidebar:
         wind_speed = weather_data['wind']['speed']
         # Displaying the weather details
         st.write("## Current Weather Status")
-        st.write("**Description:**", weather_description)
+        st.write("**Condition:**", weather_description)
         st.write("**Temperature:**", temperature,"°C")
         st.write("Min⬇", min_temperature, "°C"," | Max⬆", max_temperature, "°C")
         st.write("**Humidity:**", humidity, "%")
