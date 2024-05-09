@@ -10,3 +10,4 @@ azure-ai-textanalytics
 streamlit-geolocation
 streamlit_js_eval
 geopy
+st-gsheets-connection
