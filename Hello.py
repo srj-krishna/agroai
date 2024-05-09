@@ -192,7 +192,9 @@ if prompt := st.chat_input("Ask me anything!"):
     querylog['City']= city
     querylog['State']= state
     querylog['Country']= country
-    conn.update(worksheet="userlog", data=querylog)        
+    prevlog = conn.read(worksheet="userlog")
+    newlog = pd.concat([prevlog,querylog])
+    conn.update(worksheet="userlog", data=newlog)        
     with st.chat_message("assistant"):
         msg_placeholder = st.empty()
         msg_placeholder.markdown("Thinking...")
