@@ -32,7 +32,7 @@ def agroneugraph():
 
 
 dbsheeturl = "https://docs.google.com/spreadsheets/d/1LGIhtBpKmloR6F6l6VfWEjlCR2cw9hCYpfD7TxPatzY/edit?usp=sharing"
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
 
 # initialize Nominatim API
 geolocator = Nominatim(user_agent="neugeoloc")
