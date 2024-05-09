@@ -192,7 +192,7 @@ if prompt := st.chat_input("Ask me anything!"):
     querylog['City']= city
     querylog['State']= state
     querylog['Country']= country
-    prevlog = conn.read(worksheet="userlog")
+    prevlog = conn.read(worksheet="userlog", usecols=list(range(5)), ttl =5)
     newlog = pd.concat([prevlog,querylog])
     conn.update(worksheet="userlog", data=newlog)        
     with st.chat_message("assistant"):
