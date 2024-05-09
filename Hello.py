@@ -25,7 +25,6 @@ st.caption("🚀 powered by AgroNeuLM and AgroNeuGraph from NeuBiom Labs!")
 system_message = "You are an AgroNeubot, here to help with information and context-specific recommendations for farming in Kerala for the following query. If you don't know something just say that you don't have the information and only answer questions related to agriculture."
 lang = "English"
 final_prompt = ""
-querylog = chathistory_dataframe()
 
 @st.cache_resource
 def agroneugraph():
@@ -93,6 +92,8 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+        
+querylog = chathistory_dataframe()
 
 with st.sidebar:
     lang = st.radio(
