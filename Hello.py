@@ -61,6 +61,10 @@ def find_current_weather(lat, lon):
     weatherdata = requests.get(base_url).json()
     return weatherdata
 
+def find_region_weather(region):
+    base_url  = f"https://api.openweathermap.org/data/2.5/weather?q={region}&appid={WEATHER_KEY}&units=metric"
+    weatherdata = requests.get(base_url).json()
+    return weatherdata
 
 def translate_string(from_lang, to_lang, string):
     try:
@@ -132,6 +136,20 @@ with st.sidebar:
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
     state = st.sidebar.selectbox("Select Your Region", states)
+    if state != "India" and state != "NA": 
+        weather_data = find_region_weather(state)
+        weather_description = weather_data['weather'][0]['description']
+        temperature = weather_data['main']['temp']
+        min_temperature = weather_data['main']['temp_min']
+        max_temperature = weather_data['main']['temp_max']
+        humidity = weather_data['main']['humidity']
+        wind_speed = weather_data['wind']['speed']
+        # Displaying the weather details
+        st.write("## Current Weather Status")
+        st.write("**Description:**", weather_description)
+        st.write("**Temperature:**", temperature, "°C")
+        st.write("**Humidity:**", humidity, "%")
+        st.write("**Wind Speed:**", wind_speed, "m/s")
     #userloc = streamlit_geolocation()
     # Display a message while waiting for geolocation
     #st.write(userloc)
