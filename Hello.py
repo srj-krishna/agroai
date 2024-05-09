@@ -192,7 +192,8 @@ if prompt := st.chat_input("Ask me anything!"):
     querylog['City']= city
     querylog['State']= state
     querylog['Country']= country
-    prevlog = conn.read(worksheet="userlog", usecols=list(range(5)), ttl =5)
+    prevlog = conn.read(worksheet="userlog", usecols=list(range(5)))
+    prevlog =prevlog.dropna(how="all")
     newlog = pd.concat([prevlog,querylog])
     st.dataframe(prevlog)
     conn.update(worksheet="userlog", data=newlog)        
