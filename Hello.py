@@ -153,7 +153,10 @@ with st.sidebar:
     #userloc = streamlit_geolocation()
     # Display a message while waiting for geolocation
     #st.write(userloc)
-    """
+    
+st.caption("💬 Language set to " + lang)
+
+"""
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
         if geoloc is not None:
@@ -193,8 +196,6 @@ with st.sidebar:
 
         """
             
-st.caption("💬 Language set to " + lang)
-
 #conn.update(worksheet="userlog", data=querylog)
 if prompt := st.chat_input("Ask me anything!"):
     app = agroneugraph()
