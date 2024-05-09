@@ -167,7 +167,7 @@ with st.sidebar:
             
 st.caption("💬 Language set to " + lang)
 querylog = chathistory_dataframe()
-logdata = conn.update(spreadsheet=dbsheeturl,querylog)
+conn.create(spreadsheet=dbsheeturl, worksheet="AgroNeuBot_log", data=querylog)
 if prompt := st.chat_input("Ask me anything!"):
     app = agroneugraph()
  
