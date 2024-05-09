@@ -123,7 +123,7 @@ with st.sidebar:
         lang_code = 'te'
 
         # List of crops
-    crops = ["All crops", "Wheat", "Rice", "Maize", "Coffee","Coconut", "Arecanut", "Cashew", "Rubber", "Cardamom", "Banana", "Mango", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
+    crops = ["Any crops", "Wheat", "Rice", "Maize", "Coffee","Coconut", "Arecanut", "Cashew", "Rubber", "Cardamom", "Banana", "Mango", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
     # List of states in India
     states = [
         "India", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh","Delhi",
@@ -156,7 +156,7 @@ with st.sidebar:
     # Display a message while waiting for geolocation
     #st.write(userloc)
     
-st.caption("🎯 Recommendations focusing on " + selected_crop + " for " + state + " in " + lang + ".")
+st.caption("🎯 Recommendations on " + selected_crop + " for " + state + " in " + lang + ".")
             
 #conn.update(worksheet="userlog", data=querylog)
 if prompt := st.chat_input("Ask me anything!"):
