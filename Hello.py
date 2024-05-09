@@ -44,7 +44,7 @@ text_translator = TextTranslationClient(credential = TranslatorCredential(trkey,
 
 def chathistory_dataframe():
     return pd.DataFrame({
-        'Date': [],
+        'Date': ['1'],
         'Query': [],
         'City': [],
         'State': [],
