@@ -41,6 +41,16 @@ os.environ["HUGGINGFACE_ACCESS_TOKEN"] = "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"
 os.environ["PINECONE_API_KEY"] = "9a3d0633-db06-4ef7-a49e-3fae7210b765"
 text_translator = TextTranslationClient(credential = TranslatorCredential("0d8e18fbd4c44cb28f975e286e1cba63", "southeastasia"));
 
+
+def chathistory_dataframe():
+    return pd.DataFrame({
+        'Date': ['Date'],
+        'Query': ['Question'],
+        'City': ['City'],
+        'State': ['State'],
+        'Country': ['Country']
+    })
+
 def find_current_weather(lat, lon):
     base_url  = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={WEATHER_KEY}&units=metric"
     weatherdata = requests.get(base_url).json()
@@ -156,6 +166,8 @@ with st.sidebar:
         
             
 st.caption("💬 Language set to " + lang)
+querylog = chathistory_dataframe()
+data = conn.read(spreadsheet=url, usecols=[0, 1])
 if prompt := st.chat_input("Ask me anything!"):
     app = agroneugraph()
  
