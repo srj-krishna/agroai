@@ -166,7 +166,7 @@ with st.sidebar:
             
 st.caption("💬 Language set to " + lang)
 querylog = chathistory_dataframe()
-conn.update(worksheet="userlog", data=querylog)
+#conn.update(worksheet="userlog", data=querylog)
 if prompt := st.chat_input("Ask me anything!"):
     app = agroneugraph()
  
