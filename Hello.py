@@ -131,9 +131,9 @@ with st.sidebar:
 
     # Create dropdown menu for selecting crop
     selected_crop = st.sidebar.selectbox("Select Crop", crops)
-    userloc = streamlit_geolocation()
+    #userloc = streamlit_geolocation()
     # Display a message while waiting for geolocation
-    st.write(userloc)
+    #st.write(userloc)
     if st.checkbox("Share my location"):
         geoloc = get_geolocation()
         if geoloc is not None:
