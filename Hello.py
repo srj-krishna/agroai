@@ -94,7 +94,7 @@ if "messages" not in st.session_state:
         {
             "role": "assistant",
             "content": """
-        Hi! I'm AgroNeuBot, your personal agricultural assistant. I'm here to help you with information and context-specific recommendations for farming. How can I help you today? """,
+        Hi! I'm AgroNeuBot, your personal agricultural assistant. How can I help you today? """,
         }
     ]
 
