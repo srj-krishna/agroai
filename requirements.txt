@@ -5,7 +5,7 @@ pinecone-client
 sentence-transformers
 chromadb
 pysqlite3-binary
-azure-ai-translation-text 
+azure-ai-translation-text==1.0.0b1
 azure-ai-textanalytics
 streamlit-geolocation
 streamlit_js_eval
