@@ -11,7 +11,7 @@ import requests
 from geopy.geocoders import Nominatim
 import pandas as pd
 from datetime import datetime
-from streamlit_gsheets import GSheetsConnection
+# from streamlit_gsheets import GSheetsConnection
 from streamlit_geolocation import streamlit_geolocation
 
 
@@ -36,7 +36,7 @@ def agroneugraph():
     return embedchain.App.from_config("config.yaml")
 
 
-conn = st.connection("gsheets", type=GSheetsConnection)
+# conn = st.connection("gsheets", type=GSheetsConnection)
 
 # initialize Nominatim API
 geolocator = Nominatim(user_agent="neugeoloc")
@@ -173,16 +173,16 @@ if prompt := st.chat_input("Ask me anything!"):
     else:    
         tr_prompt = translate_string(lang_code, 'en', prompt)   
         final_prompt = tr_prompt
-    querylog = chathistory_dataframe()
-    querylog['Date']=datetime.now().date()
-    querylog['Query']= final_prompt
-    querylog['City']= city
-    querylog['State']= state
-    querylog['Country']= country
-    prevlog = conn.read(worksheet="userlog", usecols=list(range(5)), ttl=1)
-    prevlog =prevlog.dropna(how="all")
-    newlog = pd.concat([prevlog,querylog], ignore_index=True)
-    conn.update(worksheet="userlog", data=newlog)        
+   # querylog = chathistory_dataframe()
+   # querylog['Date']=datetime.now().date()
+   # querylog['Query']= final_prompt
+   # querylog['City']= city
+   # querylog['State']= state
+   # querylog['Country']= country
+   # prevlog = conn.read(worksheet="userlog", usecols=list(range(5)), ttl=1)
+   # prevlog =prevlog.dropna(how="all")
+   # newlog = pd.concat([prevlog,querylog], ignore_index=True)
+   # conn.update(worksheet="userlog", data=newlog)        
     with st.chat_message("assistant"):
         msg_placeholder = st.empty()
         msg_placeholder.markdown("Thinking...")
