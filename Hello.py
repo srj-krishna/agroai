@@ -22,7 +22,7 @@ st.set_page_config(
 
 version = embedchain.__version__
 st.title("💬 AquaScope", anchor=False)
-st.caption("🚀 powered by NeuLM and NeuGraph from NeuBiom Labs!")
+st.caption("🚀 powered by AquaNeuLM and AquaNeuGraph from NeuBiom Labs!")
 system_message = "You are an AI chatbot, here to help with information and context-specific recommendations for aquaculture and fish farming in India for the following query. If you don't know something just say that you don't have the information and only answer questions related to agriculture."
 lang = "English"
 final_prompt = ""
@@ -32,7 +32,7 @@ country = "NA"
                
 
 @st.cache_resource
-def agroneugraph():
+def aquaneugraph():
     return embedchain.App.from_config("config.yaml")
 
 
@@ -161,7 +161,7 @@ with st.sidebar:
             
 #conn.update(worksheet="userlog", data=querylog)
 if prompt := st.chat_input("Ask me anything!"):
-    app = agroneugraph()
+    app = aquaneugraph()
  
     with st.chat_message("user"):
         st.markdown(prompt)
