@@ -16,7 +16,7 @@ from streamlit_geolocation import streamlit_geolocation
 
 
 st.set_page_config(
-    page_title=("AgroNeuBot"),
+    page_title=("Aquascope"),
     page_icon="🌱",
     )
 
