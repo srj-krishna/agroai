@@ -94,7 +94,7 @@ if "messages" not in st.session_state:
         {
             "role": "assistant",
             "content": """
-        Hi! I'm AQUASCOPE, your personal agricultural assistant. How can I help you today? """,
+        Hi! I'm AQUASCOPE, your personal assistant on Indian Aquaculture. How can I help you today? """,
         }
     ]
 
