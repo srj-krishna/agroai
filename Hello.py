@@ -123,7 +123,7 @@ with st.sidebar:
         lang_code = 'te'
 
         # List of crops
-    crops = ["All crops", "Wheat", "Rice", "Maize", "Coffee","Coconut", "Arecanut", "Cashew", "Rubber", "Cardamom", "Banana", "Mango", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
+    crops = ["Aquaculture","All crops", "Wheat", "Rice", "Maize", "Coffee","Coconut", "Arecanut", "Cashew", "Rubber", "Cardamom", "Banana", "Mango", "Soybean", "Potato", "Tomato", "Cotton", "Sugarcane", "Sunflower"]
     # List of states in India
     states = [
         "India", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh","Delhi",
@@ -135,7 +135,7 @@ with st.sidebar:
 
     # Create dropdown menu for selecting crop
     st.write("## Specifiy Context")
-    selected_crop = st.sidebar.selectbox("Select Crop", crops)
+    selected_crop = st.sidebar.selectbox("Select Context", crops)
     state = st.sidebar.selectbox("Select Your Region", states)
     if state != "India" and state != "NA": 
         weather_data = find_region_weather(state)
