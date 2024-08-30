@@ -11,3 +11,4 @@ streamlit-geolocation
 streamlit_js_eval
 geopy
 st-gsheets-connection
+protobuf==3.20.*
